@@ -52,7 +52,7 @@ const elements = {
 // Function to load the JSON file and update the text
 async function loadLanguage(lang) {
   try {
-    const response = await fetch(`./lang/${lang}.json`);
+    const response = await fetch(`lang/${lang}.json`);
     const translations = await response.json();
 
     // Update elements with translations
