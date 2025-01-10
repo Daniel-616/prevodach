@@ -63,7 +63,7 @@
 
 
 
-			<h2 id="contactForm"></h2>
+			<h2 id="contactHeading"></h2>
 			<form 
 				id="contactForm2"
 				action="https://formspree.io/f/mqaagrbj"
@@ -73,6 +73,8 @@
 				<input type="email" name="Email:" placeholder="Email*" required>
 				<input type="phone" name="Phone:" placeholder="Phone">
 				<textarea name="Message:" placeholder="Your Message*" required></textarea>
+				<label for="file">Documents:</label>
+				<input type="file" id="files" name="files" multiple>
 				<input type="text" id="captcha" placeholder="What is 6 × 7?" required>
 				<button type="submit">Send</button>
 			</form>

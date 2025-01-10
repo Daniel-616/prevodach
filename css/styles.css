@@ -73,6 +73,16 @@ form button:hover {
     background: #005bb5;
 }
 
+  input[type="file"] {
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+label[for="file"] {
+    background: white;
+}
+
 /* Large Menu Styles */
 .large-menu {
   display: flex;
