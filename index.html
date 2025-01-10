@@ -53,30 +53,32 @@
 			</div>
 		</nav>
     </header>
-	<h1 style="text-align: center">Home</h1>
-    <div class="container">
+	<main>
+		<h1 style="text-align: center">Home</h1>
+		<div class="container">
 
 
-		<p id="welcome"></p>
-		<p id="description"></p>
+			<p id="welcome"></p>
+			<p id="description"></p>
 
 
 
-        <h2 id="contactForm"></h2>
-        <form 
-			id="contactForm2"
-			action="https://formspree.io/f/mqaagrbj"
-			method="POST"
-		>
-            <input type="text" name="Name:" placeholder="Name*" required>
-            <input type="email" name="Email:" placeholder="Email*" required>
-            <input type="phone" name="Phone:" placeholder="Phone">
-            <textarea name="Message:" placeholder="Your Message*" required></textarea>
-            <input type="text" id="captcha" placeholder="What is 6 × 7?" required>
-            <button type="submit">Send</button>
-        </form>
-        <p id="responseMessage"></p>
-    </div>
+			<h2 id="contactForm"></h2>
+			<form 
+				id="contactForm2"
+				action="https://formspree.io/f/mqaagrbj"
+				method="POST"
+			>
+				<input type="text" name="Name:" placeholder="Name*" required>
+				<input type="email" name="Email:" placeholder="Email*" required>
+				<input type="phone" name="Phone:" placeholder="Phone">
+				<textarea name="Message:" placeholder="Your Message*" required></textarea>
+				<input type="text" id="captcha" placeholder="What is 6 × 7?" required>
+				<button type="submit">Send</button>
+			</form>
+			<p id="responseMessage"></p>
+		</div>
+	</main>
     <footer>
         <p>&copy; 2025 prevodach.at</p>
     </footer>

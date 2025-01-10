@@ -8,37 +8,60 @@
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="images/logo.png" alt="Logo">
-            <h1>Others</h1>
-        </div>
-    <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="downloads.html">Downloads</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+		<nav class="menu">			
+			<div class="large-menu">
+				<select id="languageSelector">
+				<option value="de">Deutsch</option>
+				<option value="bg">Български</option>
+				<option value="en">English</option>
+				</select>
+				<div class="dropdown">
+					<button class="dropdown-btn">Services</button>
+					<div class="dropdown-content">
+						  <a href="service1.html">Service 1</a>
+						  <a href="service2.html">Service 2</a>
+					</div>
+				</div>
+				
+				<a href="index.html"><div class="logo"><img src="images/logo.png" alt="Logo"></div></a>
+				
+				<div class="dropdown">
+					<button class="dropdown-btn">Downloads & Others</button>
+					<div class="dropdown-content">
+						  <a href="downloads.html">Downloads</a>
+						  <a href="others.html">Others</a>
+					</div>
+				</div>
+				<a href="contact.html">Contact</a>
+			</div>
+			<div class="mobile-menu">
+				<button class="mobile-menu-btn">☰ Menu</button>
+				<div class="mobile-dropdown-content">
+					<select id="languageSelector">
+					<option value="de">Deutsch</option>
+					<option value="bg">Български</option>
+					<option value="en">English</option>
+					</select>
+					<p>Services</p>
+					<a href="service1.html">Service 1</a>
+					<a href="service2.html">Service 2</a>
+					<p>Downloads & Others</p>
+				    <a href="downloads.html">Downloads</a>
+				    <a href="others.html">Others</a>
+					<a href="contact.html">Contact</a>
+				</div>
+			</div>
+		</nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="downloads.html">Downloads</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    <div class="container">
-        <h2>Contact Details</h2>
-        <p>Email: your_email@example.com</p>
-        <p>Phone: +123 456 7890</p>
-    </div>
+	<main>
+		<div class="container">
+			<h2>Others</h2>
+			<p>...</p>
+			<p>...</p>
+		</div>
+	</main>
     <footer>
-        <p>&copy; 2025 My Website</p>
+        <p>&copy; 2025 prevodach.at</p>
     </footer>
     <script src="js/scripts.js"></script>
 </body>

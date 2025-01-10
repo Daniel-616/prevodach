@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const elements = {
   welcome: document.getElementById('welcome'),
   description: document.getElementById('description'),
+  contactForm: document.getElementById('contactForm'),
 };
 
 // Function to load the JSON file and update the text
@@ -60,6 +61,7 @@ async function loadLanguage(lang) {
     // Update elements with translations
     elements.welcome.textContent = translations.welcome;
     elements.description.textContent = translations.description;
+    elements.contactForm.textContent = translations.contactForm;	
   } catch (error) {
     console.error("Error loading language file:", error);
   }
