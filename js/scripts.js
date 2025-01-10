@@ -76,7 +76,7 @@ document.getElementById('languageSelector').addEventListener('change', (event) =
   localStorage.setItem('language', selectedLanguage);
 });
 
-// Load the saved language or default to 'en'
-const savedLanguage = localStorage.getItem('language') || 'en';
+// Load the saved language or default to 'de'
+const savedLanguage = localStorage.getItem('language') || 'de';
 document.getElementById('languageSelector').value = savedLanguage;
 loadLanguage(savedLanguage);
