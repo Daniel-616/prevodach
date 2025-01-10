@@ -1,12 +1,14 @@
 // Toggle the hamburger menu
 document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('nav');
+	// Handle the menu dropdown
+    const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+    const mobileDropdown = document.querySelector(".mobile-dropdown-content");
 
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('open');
+    mobileMenuBtn.addEventListener("click", () => {
+      const isDisplayed = mobileDropdown.style.display === "block";
+      mobileDropdown.style.display = isDisplayed ? "none" : "block";
     });
-
+  
     // Handle form submission with CAPTCHA validation
     const form = document.getElementById("contactForm");
     const responseMessage = document.getElementById("responseMessage");
@@ -64,7 +66,7 @@ async function loadLanguage(lang) {
 }
 
 // Handle language change
-document.getElementById('languageSwitcher').addEventListener('change', (event) => {
+document.getElementById('languageSelector').addEventListener('change', (event) => {
   const selectedLanguage = event.target.value;
   loadLanguage(selectedLanguage);
 
@@ -74,5 +76,5 @@ document.getElementById('languageSwitcher').addEventListener('change', (event) =
 
 // Load the saved language or default to 'en'
 const savedLanguage = localStorage.getItem('language') || 'en';
-document.getElementById('languageSwitcher').value = savedLanguage;
+document.getElementById('languageSelector').value = savedLanguage;
 loadLanguage(savedLanguage);
