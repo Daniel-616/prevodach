@@ -1,3 +1,8 @@
-"dependencies": {
-  "nodemailer": "^6.7.2"
+{
+  "name": "prevodach.at",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "nodemailer": "^6.7.2"
+  }
 }
