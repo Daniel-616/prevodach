@@ -2,6 +2,9 @@ const nodemailer = require('nodemailer');
 import formidable from 'formidable';
 import fs from 'fs';
 
+window.alert(process.env.SMTP_USER);
+window.alert(process.env.SMTP_PASS);
+
 export const config = {
     api: {
         bodyParser: false,
@@ -40,7 +43,7 @@ export default async function handler(req, res) {
                 secure: false,
                 auth: {
                     user: 'prevodach.at@gmail.com',
-                    pass: 'stwreerggnjbdkrs',
+                    pass: 'stwreerggnjbdkrs'
                 },
             });
 
