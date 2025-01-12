@@ -1,4 +1,4 @@
-const nodemailer = require("nodemailer");
+const nodemailer = require('nodemailer');
 import formidable from 'formidable';
 import fs from 'fs';
 

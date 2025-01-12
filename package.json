@@ -1,7 +1,7 @@
 {
   "name": "prevodach.at",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "js/scripts.js"",
   "dependencies": {
     "nodemailer": "^6.7.2"
   }
