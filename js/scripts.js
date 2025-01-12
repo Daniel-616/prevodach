@@ -45,6 +45,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+document.getElementById('contactForm2').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch('/api/sendEmail', {
+            method: 'POST',
+            body: formData,
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            document.getElementById('responseMessage').innerText = 'Email sent successfully!';
+            form.reset();
+        } else {
+            document.getElementById('responseMessage').innerText = `Error: ${result.error}`;
+        }
+    } catch (error) {
+        document.getElementById('responseMessage').innerText = 'Failed to send email.';
+    }
+});
+
 // Get the relevant elements
 const elements = {
   welcome: document.getElementById('welcome'),

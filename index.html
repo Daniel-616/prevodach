@@ -65,8 +65,9 @@
 			<h2 id="contactHeading"></h2>
 			<form 
 				id="contactForm2"
-				action="https://formspree.io/f/mqaagrbj"
+				action="/api/sendEmail"
 				method="POST"
+				enctype="multipart/form-data"
 			>
 				<input type="text" name="Name:" placeholder="Name*" required>
 				<input type="email" name="Email:" placeholder="Email*" required>
