@@ -23,8 +23,6 @@ export default async function handler(req, res) {
 
         const { name, email, phone, message } = fields;
         const attachments = [];
-		console.log(fields);
-		console.log(attachments);
 
         if (files.files) {
             const fileList = Array.isArray(files.files) ? files.files : [files.files];
@@ -51,7 +49,7 @@ export default async function handler(req, res) {
                 from: `"${name}" <${email}>`,
                 to: 'prevodach.at@gmail.com',
                 subject: `New Contact Form Submission from ${name}`,
-                text: `Message: ${message}\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}`,
+                text: `Message: ${message}\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone} \n\nRest: ${fields}`,
                 attachments,
             });
 
