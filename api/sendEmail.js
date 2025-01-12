@@ -3,7 +3,7 @@ import formidable from 'formidable';
 import fs from 'fs';
 
 console.log(process.env.SMTP_USER);
-coonsole.log(process.env.SMTP_PASS);
+console.log(process.env.SMTP_PASS);
 
 export const config = {
     api: {
