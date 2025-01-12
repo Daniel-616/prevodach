@@ -39,8 +39,8 @@ export default async function handler(req, res) {
                 port: 587,
                 secure: false,
                 auth: {
-                    user: process.env.SMTP_USER,
-                    pass: process.env.SMTP_PASS,
+                    user: 'prevodach.at@gmail.com',
+                    pass: 'stwreerggnjbdkrs',
                 },
             });
 
