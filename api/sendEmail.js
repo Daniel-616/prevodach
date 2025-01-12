@@ -40,14 +40,14 @@ export default async function handler(req, res) {
                 port: 587,
                 secure: false,
                 auth: {
-                    user: 'prevodach.at@gmail.com',
-                    pass: 'stwreerggnjbdkrs'
+                    user: process.env.SMTP_USER,
+                    pass: process.env.SMTP_PASS
                 },
             });
 
             await transporter.sendMail({
-                from: `${name} <${email}>`,
-                to: 'prevodach.at@gmail.com',
+                from: `${name}`,
+                to: process.env.SMTP_USER,
                 subject: `[prevodach.at] New Request from ${name}`,
                 text: `Message: \n${message}\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}`,
                 attachments,
