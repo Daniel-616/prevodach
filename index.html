@@ -8,10 +8,12 @@
 </head>
 <body>
     <header>
-		<nav class="menu">			
+		<nav class="menu">
+			<div class="contact-info">
+				<a href="tel:+1234567890" aria-label="Call us at +1 234-567-890">Phone: +1 234-567-890</a>
+				<a href="mailto:example@example.com" aria-label="Email us at example@example.com">Email: example@example.com</a>			
+			</div>
 			<div class="large-menu">
-				<p>Phone: </p><a href="tel:+1234567890" aria-label="Call us at +1 234-567-890">+1 234-567-890</a></p>
-				<p>Email: <a href="mailto:example@example.com" aria-label="Email us at example@example.com">example@example.com</a></p>
 				<select id="languageSelector">
 				<option value="de">Deutsch</option>
 				<option value="bg">Български</option>
@@ -39,7 +41,7 @@
 			<div class="mobile-menu">
 				<button class="mobile-menu-btn">☰ Menu</button>
 				<div class="mobile-dropdown-content">
-					<select id="languageSelector">
+					<select id="languageSelector2">
 					<option value="de">Deutsch</option>
 					<option value="bg">Български</option>
 					<option value="en">English</option>
@@ -58,13 +60,8 @@
 	<main>
 		<h1 style="text-align: center">Home</h1>
 		<div class="container">
-
-
 			<p id="welcome"></p>
 			<p id="description"></p>
-
-
-
 			<h2 id="contactHeading"></h2>
 			<form 
 				id="contactForm2"
