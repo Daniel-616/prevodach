@@ -46,10 +46,10 @@ export default async function handler(req, res) {
             });
 
             await transporter.sendMail({
-                from: `"${name}" <${email}>`,
+                from: `${name} <${email}>`,
                 to: 'prevodach.at@gmail.com',
-                subject: `New Contact Form Submission from ${name}`,
-                text: `Message: ${message}\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone} \n\nRest: ${fields}`,
+                subject: `[prevodach.at] New Request from ${name}`,
+                text: `Message: \n${message}\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}`,
                 attachments,
             });
 
