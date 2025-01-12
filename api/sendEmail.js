@@ -2,8 +2,6 @@ const nodemailer = require('nodemailer');
 import formidable from 'formidable';
 import fs from 'fs';
 
-console.log(process.env.SMTP_USER);
-console.log(process.env.SMTP_PASS);
 
 export const config = {
     api: {
@@ -25,6 +23,8 @@ export default async function handler(req, res) {
 
         const { name, email, phone, message } = fields;
         const attachments = [];
+		console.log(fields);
+		console.log(attachments);
 
         if (files.files) {
             const fileList = Array.isArray(files.files) ? files.files : [files.files];
