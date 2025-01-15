@@ -80,7 +80,11 @@ async function loadLanguage(lang) {
   try {
     const response = await fetch(`lang/${lang}.json`);
     const translations = await response.json();
-
+	
+	// Update both menus
+	document.getElementById('languageSelector').value = lang;
+	document.getElementById('languageSelector2').value = lang;
+	
     // Update elements with translations
     elements.welcome.textContent = translations.welcome;
     elements.description.textContent = translations.description;
@@ -90,16 +94,26 @@ async function loadLanguage(lang) {
   }
 }
 
-// Handle language change
+// Handle language change for the large menu
 document.getElementById('languageSelector').addEventListener('change', (event) => {
   const selectedLanguage = event.target.value;
   loadLanguage(selectedLanguage);
 
-  // Optionally, save the user's choice
+  // Save the user's choice
+  localStorage.setItem('language', selectedLanguage);
+});
+
+// Handle language change for the mobile menu
+document.getElementById('languageSelector2').addEventListener('change', (event) => {
+  const selectedLanguage = event.target.value;
+  loadLanguage(selectedLanguage);
+
+  // Save the user's choice
   localStorage.setItem('language', selectedLanguage);
 });
 
 // Load the saved language or default to 'de'
 const savedLanguage = localStorage.getItem('language') || 'de';
 document.getElementById('languageSelector').value = savedLanguage;
+document.getElementById('languageSelector2').value = savedLanguage;
 loadLanguage(savedLanguage);
