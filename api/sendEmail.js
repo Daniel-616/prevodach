@@ -24,7 +24,7 @@ export default async function handler(req, res) {
         const { name, email, phone, message } = fields;
         const attachments = [];
 
-        if (files.files) {
+        if (files.files && Object.keys(files.files).length > 0) {
             const fileList = Array.isArray(files.files) ? files.files : [files.files];
             fileList.forEach(file => {
                 attachments.push({
@@ -49,7 +49,7 @@ export default async function handler(req, res) {
                 from: `${name}`,
                 to: process.env.SMTP_USER,
                 subject: `[prevodach.at] New Request from ${name}`,
-                text: `Message: \n${message}\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}`,
+                text: `Message: \n${message}\n\nName: ${name}\nEmail: ${email}${phone ? `\nPhone: ${phone}` : ''}`,
                 attachments,
             });
 
