@@ -51,6 +51,9 @@ document.getElementById('contactForm2').addEventListener('submit', async (e) => 
     const formData = new FormData(form);
 
     try {
+		const token = await grecaptcha.execute('6LcBvLsqAAAAAJQXK7jREspBgaWm_r8PwDit5i_A', { action: 'submit' });
+		formData.append('g-recaptcha-response', token);
+			
         const response = await fetch('/api/sendEmail', {
             method: 'POST',
             body: formData,
