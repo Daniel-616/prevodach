@@ -27,9 +27,9 @@ export default async function handler(req, res) {
         if (files.files && Object.keys(files.files).length > 0) {
             const fileList = Array.isArray(files.files) ? files.files : [files.files];
             fileList.forEach(file => {
-				if (file && file.filepath) {
+				if (file && file.filepath && fs.existsSync(file.filepath)) {
 					attachments.push({
-						filename: file.originalFilename,
+						filename: file.originalFilename || 'unknown',
 						path: file.filepath,
 					});
 				}
