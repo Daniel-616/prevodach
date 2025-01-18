@@ -27,10 +27,12 @@ export default async function handler(req, res) {
         if (files.files && Object.keys(files.files).length > 0) {
             const fileList = Array.isArray(files.files) ? files.files : [files.files];
             fileList.forEach(file => {
-                attachments.push({
-                    filename: file.originalFilename,
-                    path: file.filepath,
-                });
+				if (file && file.filepath) {
+					attachments.push({
+						filename: file.originalFilename,
+						path: file.filepath,
+					});
+				}
             });
         }
 
