@@ -9,6 +9,21 @@ export const config = {
     },
 };
 
+async function verifyRecaptcha(token) {
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+    const googleResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+        method: 'POST',
+        body: new URLSearchParams({
+            secret: secretKey,
+            response: token,
+        }),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    });
+
+    const googleResult = await googleResponse.json();
+    return googleResult.success && googleResult.score >= 0.7;
+}
+
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
