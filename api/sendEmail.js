@@ -21,7 +21,7 @@ async function verifyRecaptcha(token) {
     });
 
     const googleResult = await googleResponse.json();
-    return googleResult.success && googleResult.score >= 0.7;
+    return googleResult.success && googleResult.score >= 0.0;
 }
 
 export default async function handler(req, res) {
@@ -36,7 +36,7 @@ export default async function handler(req, res) {
             return res.status(500).json({ error: 'Error processing form data' });
         }
 
-        const { 'g-recaptcha-response': name, email, phone, message, captchaToken } = fields;
+        const { 'g-recaptcha-response': captchaToken, name, email, phone, message } = fields;
 
         const isHuman = await verifyRecaptcha(captchaToken);
         if (!isHuman) {
