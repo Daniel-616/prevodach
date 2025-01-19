@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
-const formidable = require('formidable');
-const fs = require('fs');
+import formidable from 'formidable';
+import fs from 'fs';
 const fetch = require('node-fetch');
 
 
