@@ -39,6 +39,7 @@ export default async function handler(req, res) {
         const { 'g-recaptcha-response': captchaToken, name, email, phone, message } = fields;
 
         const isHuman = await verifyRecaptcha(captchaToken);
+        console.log(isHuman);
         if (!isHuman) {
             return res.status(400).json({ error: 'reCAPTCHA validation failed.' });
         }
