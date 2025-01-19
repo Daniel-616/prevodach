@@ -1,0 +1,45 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+		{
+		  "key": "Content-Security-Policy",
+		  "value": "default-src 'self';" + 
+				   "script-src 'self' https://www.google.com https://www.gstatic.com;" + 
+				   "connect-src 'self' https://www.google.com/recaptcha/api/siteverify;" + 
+				   "img-src 'self' https://www.gstatic.com;" + 
+				   "font-src 'self';" + 
+				   "frame-src 'self' https://www.google.com;" + 
+				   "form-action 'self';" + 
+				   "upgrade-insecure-requests;" + 
+				   "block-all-mixed-content;"
+		},
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(self), camera=()"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer-when-downgrade"
+        }
+      ]
+    }
+  ]
+}
