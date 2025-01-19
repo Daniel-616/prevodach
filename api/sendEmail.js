@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
-import formidable from 'formidable';
-import fs from 'fs';
+const formidable = require('formidable');
+const fs = require('fs');
 const fetch = require('node-fetch');
 
 export const config = {
@@ -36,7 +36,7 @@ export default async function handler(req, res) {
             return res.status(500).json({ error: 'Error processing form data' });
         }
 
-        const { 'g-recaptcha-response': captchaToken, name, email, phone, message } = fields;
+        const { 'g-recaptcha-response': name, email, phone, message, captchaToken } = fields;
 
         const isHuman = await verifyRecaptcha(captchaToken);
         if (!isHuman) {
