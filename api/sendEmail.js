@@ -2,7 +2,6 @@ const nodemailer = require('nodemailer');
 import formidable from 'formidable';
 import fs from 'fs';
 
-
 export const config = {
     api: {
         bodyParser: false,
@@ -44,7 +43,6 @@ export default async function handler(req, res) {
         }
 	
         const attachments = [];
-
         if (files.files && Object.keys(files.files).length > 0) {
             const fileList = Array.isArray(files.files) ? files.files : [files.files];
             fileList.forEach(file => {
