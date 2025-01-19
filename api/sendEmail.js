@@ -1,7 +1,6 @@
 const nodemailer = require('nodemailer');
 import formidable from 'formidable';
 import fs from 'fs';
-const fetch = require('node-fetch');
 
 
 export const config = {
