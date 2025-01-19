@@ -1,6 +1,7 @@
 const nodemailer = require('nodemailer');
-const formidable = require('formidable');
-const fs = require('fs');
+import formidable from 'formidable';
+import fs from 'fs';
+
 
 export const config = {
     api: {
@@ -8,24 +9,9 @@ export const config = {
     },
 };
 
-async function verifyRecaptcha(token) {
-    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-    const googleResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-        method: 'POST',
-        body: new URLSearchParams({
-            secret: secretKey,
-            response: token,
-        }),
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    });
-
-    const googleResult = await googleResponse.json();
-    return googleResult.success && googleResult.score >= 0.7;
-}
-
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
-        return res.status(405).json({ error: 'Method Not Allowed' });
+        return res.status(405).json({ error: 'Method not allowed' });
     }
 
     const form = new formidable.IncomingForm({ multiples: true });
@@ -35,23 +21,18 @@ export default async function handler(req, res) {
             return res.status(500).json({ error: 'Error processing form data' });
         }
 
-        const { 'g-recaptcha-response': captchaToken, name, email, phone, message } = fields;
-
-        const isHuman = await verifyRecaptcha(captchaToken);
-        if (!isHuman) {
-            return res.status(400).json({ error: 'reCAPTCHA validation failed.' });
-        }
-
+        const { name, email, phone, message } = fields;
         const attachments = [];
+
         if (files.files && Object.keys(files.files).length > 0) {
             const fileList = Array.isArray(files.files) ? files.files : [files.files];
             fileList.forEach(file => {
-                if (file && file.filepath && fs.existsSync(file.filepath)) {
-                    attachments.push({
-                        filename: file.originalFilename || 'unknown',
-                        path: file.filepath,
-                    });
-                }
+				if (file && file.filepath && fs.existsSync(file.filepath)) {
+					attachments.push({
+						filename: file.originalFilename || 'unknown',
+						path: file.filepath,
+					});
+				}
             });
         }
 
@@ -62,12 +43,12 @@ export default async function handler(req, res) {
                 secure: false,
                 auth: {
                     user: process.env.SMTP_USER,
-                    pass: process.env.SMTP_PASS,
+                    pass: process.env.SMTP_PASS
                 },
             });
 
             await transporter.sendMail({
-                from: `${name}`
+                from: `${name}`,
                 to: process.env.SMTP_USER,
                 subject: `[prevodach.at] New Request from ${name}`,
                 text: `Message: \n${message}\n\nName: ${name}\nEmail: ${email}${phone ? `\nPhone: ${phone}` : ''}`,
