@@ -39,7 +39,17 @@ a {
 }
 
 h1 {
-  text-align: center;
+	background-size: cover;	
+	background-position: center;
+	color: white;
+	text-align: left;
+	padding: 0px;
+	font-size: 3.5rem;
+	height: 400px;
+	line-height: 400px;
+	margin-top: 0px;
+	margin-bottom: 50px;
+	padding-left: 150px;
 }
 
 form {
