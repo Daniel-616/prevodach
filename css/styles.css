@@ -94,6 +94,13 @@ label[for="file"] {
 	align-items: center;
 }
 
+.wave-border svg {
+	margin-top: 50px;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 #languageSelector {
 	height: 25px;
 }
