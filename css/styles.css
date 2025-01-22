@@ -102,20 +102,31 @@ label[for="file"] {
 }
 	
 .contact-info {
-	display: grid;
+    display: grid;
     grid-template-columns: 1fr 1fr;
-	align-items: center;
+    align-items: center;
 }
 
 .wave-border svg {
-	margin-top: 50px;
+    margin-top: 50px;
     display: block;
     width: 100%;
     height: auto;
 }
 
 #languageSelector {
-	height: 25px;
+    height: 25px;
+}
+
+#noScriptDiv {
+    color: red; 
+    background-color: #f8d7da; 
+    padding: 10px; 
+    margin-top: 20px;"
+}
+
+#noScriptLink {
+    color: #007bff;
 }
 
 /* Large Menu Styles */
